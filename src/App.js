@@ -50,31 +50,31 @@ const dummy = [
   {
     id: 1,
     score: 1,
-    content: "testestsetsetsetset",
+    content: "내일",
     date: 1650126849993,
   },
   {
     id: 2,
     score: 2,
-    content: "testestsetsetsetset",
+    content: "까진",
     date: 1650126849994,
   },
   {
     id: 3,
     score: 3,
-    content: "testestsetsetsdfsdfsetset",
+    content: "진짜",
     date: 1650126849995,
   },
   {
     id: 4,
     score: 4,
-    content: "testestsetsetsetset",
+    content: "전부",
     date: 1650126849996,
   },
   {
     id: 5,
     score: 5,
-    content: "testestsetsetdfgasetset",
+    content: "끝냄",
     date: 1650126849997,
   },
 ];
