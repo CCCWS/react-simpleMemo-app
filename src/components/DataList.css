@@ -1,0 +1,75 @@
+.menu {
+  display: flex;
+  height: 40px;
+}
+
+.selectMenu {
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 20%;
+  cursor: pointer;
+  font-family: "Hi Melody", cursive;
+  background-color: rgb(226, 226, 226);
+  font-size: 20px;
+}
+
+.menu Button {
+  width: 60%;
+}
+
+.dataList Button {
+  height: 40px;
+}
+
+.dataList {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  height: 100px;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+}
+
+.imgScore {
+  display: flex;
+  width: 100px;
+  height: 80px;
+  justify-content: center;
+  border-radius: 10px;
+  height: 100px;
+}
+
+.imgScore1 {
+  background-color: #64c964;
+}
+.imgScore2 {
+  background-color: #9dd772;
+}
+.imgScore3 {
+  background-color: #fdce17;
+}
+.imgScore4 {
+  background-color: #fd8446;
+}
+.imgScore5 {
+  background-color: #fd565f;
+}
+
+.listContent {
+  width: 70%;
+  padding-left: 30px;
+  font-size: 20px;
+}
+
+.date {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.content {
+  font-size: 25px;
+}
