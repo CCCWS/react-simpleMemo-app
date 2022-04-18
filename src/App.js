@@ -19,7 +19,8 @@ const reducer = (state, action) => {
     }
 
     case "CREATE": {
-      newState = [...action.data, ...state];
+      newState = [action.data, ...state];
+      // localStorage.setItem("data", JSON.stringify(newState));
       //전달 받은 데이터와 기존에 있던 데이터를 모두 저장
       break;
     }
@@ -80,6 +81,9 @@ const dummy = [
 ];
 
 function App() {
+  // const test = JSON.parse(localStorage.getItem("data"));
+  // console.log(test);
+
   const [data, dispatch] = useReducer(reducer, dummy);
   const dataId = useRef(1);
 

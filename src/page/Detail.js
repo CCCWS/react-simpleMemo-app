@@ -25,8 +25,6 @@ function Detail() {
     setDetailData(filterData);
   }, []);
 
-  console.log(detailData);
-
   return (
     <>
       {detailData !== undefined ? (

@@ -120,10 +120,11 @@ body {
   cursor: pointer;
 }
 
-.scoreBox {
+.scoreInput {
   display: grid;
   grid-template-columns: repeat(5, auto);
   gap: 2%;
+  margin-bottom: 40px;
 }
 
 .scoreSelect {
@@ -147,6 +148,7 @@ body {
 
 .imgScoreOff {
   background-color: rgb(228, 228, 228);
+  border: 2px solid rgb(0, 0, 0, 0.1);
 }
 
 .imgScore1 {
@@ -173,4 +175,22 @@ body {
   background-color: #fd565f;
   color: rgb(255, 247, 247);
   border: 2px solid rgb(0, 0, 0, 0.1);
+}
+
+.contentInput {
+  background-color: rgb(228, 228, 228);
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  min-height: 200px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Hi Melody", cursive;
+  resize: vertical;
+  margin-bottom: 40px;
+}
+
+.BtnInput {
+  display: flex;
+  justify-content: space-between;
 }
