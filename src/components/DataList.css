@@ -4,7 +4,7 @@
 }
 
 .selectMenu {
-  border: none;
+  border: 2px solid rgb(0, 0, 0, 0.1);
   border-radius: 5px;
   margin-right: 10px;
   width: 20%;
@@ -12,6 +12,7 @@
   font-family: "Hi Melody", cursive;
   background-color: rgb(226, 226, 226);
   font-size: 20px;
+  
 }
 
 .menu Button {
@@ -31,6 +32,7 @@
   padding-bottom: 30px;
   height: 100px;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  
 }
 
 .dataList .imgScore {
@@ -40,22 +42,6 @@
   justify-content: center;
   border-radius: 10px;
   height: 100px;
-}
-
-.imgScore1 {
-  background-color: #64c964;
-}
-.imgScore2 {
-  background-color: #9dd772;
-}
-.imgScore3 {
-  background-color: #fdce17;
-}
-.imgScore4 {
-  background-color: #fd8446;
-}
-.imgScore5 {
-  background-color: #fd565f;
 }
 
 .listContent {
@@ -68,6 +54,7 @@
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 20px;
+  
 }
 
 .content {
