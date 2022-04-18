@@ -7,6 +7,11 @@ import Editor from "../components/Editor";
 function Edit() {
   const nav = useNavigate();
 
+  useEffect(() => {
+    const titleName = document.getElementsByTagName("title")[0];
+    titleName.innerHTML = `Daily Memo 수정`;
+  }, []);
+
   const data = useContext(StateContext);
   const { id } = useParams();
 

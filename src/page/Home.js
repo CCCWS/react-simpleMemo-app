@@ -16,6 +16,11 @@ function Home() {
   const [currDate, setCurrDate] = useState(new Date()); //header에 날짜 표시를 위한 state
 
   useEffect(() => {
+    const titleName = document.getElementsByTagName("title")[0];
+    titleName.innerHTML = `Daily Memo  ${currDate.getMonth() + 1}월`;
+  }, [currDate]);
+
+  useEffect(() => {
     const first = new Date(
       currDate.getFullYear(),
       currDate.getMonth(),
@@ -59,6 +64,7 @@ function Home() {
   const create = () => {
     nav("/new");
   };
+
   return (
     <>
       <Header

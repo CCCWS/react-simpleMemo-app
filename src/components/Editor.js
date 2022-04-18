@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import { useNavigate } from "react-router-dom";
 
 import Header from "./Header";
@@ -26,9 +32,11 @@ function Editor({ isEdit, findData }) {
   const [score, setScore] = useState(3);
   const [content, setContent] = useState("");
 
-  const saveScore = (data) => {
+  const saveScore = useCallback((data) => {
     setScore(data);
-  };
+  }, []);
+  //ScoreItem에 넘겨주는 saveScore함수는 useStaet 상태변화 함수가 아님
+  //useCallback을 해주어야 매번 재랜더링이 발생하지 않음
 
   const back = () => {
     nav(-1);
@@ -64,8 +72,8 @@ function Editor({ isEdit, findData }) {
     <>
       <Header
         text={isEdit ? "수정하기 " : "새글쓰기"}
-        left={<Button onClick={back} text={"< 뒤로가기"} />}
-        right={isEdit ? <Button type={"red"} text={"삭제하기"} /> : null}
+        left={<Button text={"취소"} onClick={back} />}
+        right={<Button text={"완료"} type={"green"} onClick={dataSubmit} />}
       />
       <section>
         <h2>오늘 날짜는?</h2>
@@ -98,11 +106,6 @@ function Editor({ isEdit, findData }) {
           onChange={(event) => setContent(event.target.value)}
           placeholder="내용 입력"
         />
-      </section>
-
-      <section className="BtnInput">
-        <Button text={"취소"} onClick={back} />
-        <Button text={"완료"} type={"green"} onClick={dataSubmit} />
       </section>
     </>
   );

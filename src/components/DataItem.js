@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 function DataItem({ id, score, date, content }) {
+  // useEffect(() => {
+  //   console.log("test");
+  // });
   const nav = useNavigate();
 
   const detailPage = () => {
@@ -31,4 +34,4 @@ function DataItem({ id, score, date, content }) {
   );
 }
 
-export default DataItem;
+export default React.memo(DataItem);

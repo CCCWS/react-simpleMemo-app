@@ -201,11 +201,6 @@ body {
   margin-bottom: 40px;
 }
 
-.BtnInput {
-  display: flex;
-  justify-content: space-between;
-}
-
 /* 상세페이지 */
 .detailScore {
   display: flex;

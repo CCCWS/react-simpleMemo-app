@@ -17,7 +17,15 @@ const filterType = [
 ];
 
 //select 컴포넌트
-const SelectMenu = ({ setFunction, type }) => {
+const SelectMenu = React.memo(({ setFunction, type }) => {
+  // useEffect(() => {
+  //   console.log("render");
+  // });
+  //React.memo를 사용하지 않으면 해더의 날짜가 바뀔때마다 실행됨
+
+  //setFunction같이 상태변화함수를 넘겨받는 경우에는 자체적으로 useCallback이 적용되어서 받게됨
+  //props로 넘겨받지않고 컴포넌트에서 함수를 생성하여 사용하면 따로 처리를 해줘야하는 불편함발생
+
   const onChange = (event) => {
     setFunction(event.target.value);
   }; //이벤트가 발생하면 new인지 old인지 setDataSort로 데이터를 저장
@@ -30,7 +38,7 @@ const SelectMenu = ({ setFunction, type }) => {
       ))}
     </select>
   );
-};
+});
 
 function DataList({ data }) {
   const nav = useNavigate();
@@ -100,3 +108,5 @@ DataList.defaultProps = {
 };
 
 export default DataList;
+
+//Home컴포넌트의 자식요소로 Home이 재랜더링이 발생하면 같이 재랜더링 발생
