@@ -25,7 +25,11 @@ function Home() {
     const last = new Date(
       currDate.getFullYear(),
       currDate.getMonth() + 1,
-      0
+      0,
+      23,
+      59,
+      59
+      //0만 입력해주면 월의 마지막일은 표시가 안됨
     ).getTime(); //헤더에 표시된 월의 마지막일
 
     setData(dataList.filter((data) => first <= data.date && data.date <= last));

@@ -7,33 +7,7 @@ import ScoreItem from "./ScoreItem";
 
 import { FunctionContext } from "../App";
 
-const scoreList = [
-  {
-    score_id: 1,
-    score_img: process.env.PUBLIC_URL + `/assets/emotion1.png`,
-    score_descript: "완벽",
-  },
-  {
-    score_id: 2,
-    score_img: process.env.PUBLIC_URL + `/assets/emotion2.png`,
-    score_descript: "만족",
-  },
-  {
-    score_id: 3,
-    score_img: process.env.PUBLIC_URL + `/assets/emotion3.png`,
-    score_descript: "보통",
-  },
-  {
-    score_id: 4,
-    score_img: process.env.PUBLIC_URL + `/assets/emotion4.png`,
-    score_descript: "별로",
-  },
-  {
-    score_id: 5,
-    score_img: process.env.PUBLIC_URL + `/assets/emotion5.png`,
-    score_descript: "망함",
-  },
-];
+import { scoreList } from "../utils/score";
 
 const stringDate = (date) => {
   return date.toISOString().slice(0, 10);
@@ -44,7 +18,7 @@ const stringDate = (date) => {
 function Editor({ isEdit, findData }) {
   //Edit에서 넘겨받은 props
   const nav = useNavigate();
-  const { onCreate } = useContext(FunctionContext);
+  const { onCreate, onEdit } = useContext(FunctionContext);
   //useContext를 사용해 App.js에 있는 FunctionContext에 넣어준 onCreate함수를 꺼내옴
 
   const contentRef = useRef();
@@ -66,8 +40,14 @@ function Editor({ isEdit, findData }) {
       return;
     }
 
-    onCreate(date, content, score);
-    nav("/", { replace: true });
+    if (window.confirm(isEdit ? "내용 수정?" : "내용 작성?")) {
+      if (!isEdit) {
+        onCreate(date, content, score);
+      } else {
+        onEdit(findData.id, date, content, score);
+      }
+      nav("/", { replace: true });
+    }
     // replace: true  > 홈으로 돌아간후 뒤로가기를 했을경우 해당 페이지에 다시 오는걸 막음
   };
 
@@ -78,13 +58,14 @@ function Editor({ isEdit, findData }) {
       setContent(findData.content);
     }
   }, [isEdit, findData]);
- //isEdit가 true일때 > edit로 넘어왔을때
+  //isEdit가 true일때 > edit로 넘어왔을때
 
   return (
     <>
       <Header
-        text={"새글쓰기"}
+        text={isEdit ? "수정하기 " : "새글쓰기"}
         left={<Button onClick={back} text={"< 뒤로가기"} />}
+        right={isEdit ? <Button type={"red"} text={"삭제하기"} /> : null}
       />
       <section>
         <h2>오늘 날짜는?</h2>

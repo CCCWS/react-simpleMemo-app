@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { StateContext } from "../App";
-import "./Detail.css";
 
 import Button from "../components/Button";
 import Header from "../components/Header";
+
+import { scoreList } from "../utils/score";
 
 function Detail() {
   const nav = useNavigate();
@@ -21,37 +22,50 @@ function Detail() {
   };
 
   useEffect(() => {
-    const filterData = data.find((data) => data.id == id);
-    setDetailData(filterData);
-  }, []);
+    if (data.length > 0) {
+      const find = data.find((data) => parseInt(data.id) === parseInt(id));
+      if (find) {
+        setDetailData(find);
+      } else {
+        alert("없음");
+        nav(`/`, { replace: true });
+      }
+    }
+  }, [data, id]);
 
-  return (
-    <>
-      {detailData !== undefined ? (
-        <>
-          <Header
-            text={new Date(detailData.date).toLocaleDateString()}
-            left={<Button text={"뒤로가기"} onClick={backPage} />}
-            right={<Button text={"수정하기"} onClick={editPage} />}
-          />
-          <div className="detailPage">
-            <h4> 점수 </h4>
-            <div
-              className={[`detailPageImg imgScore${detailData.score}`].join(
-                " "
-              )}
-            >
-              <img src={`../../assets/emotion${detailData.score}.png`} />
-              <div>나쁨</div>
-            </div>
+  if (!detailData) {
+    return <div>loading</div>;
+  } else {
+    const findScoreData = scoreList.find(
+      (data) => parseInt(data.score_id) === parseInt(detailData.id)
+    );
+    console.log(findScoreData);
 
-            <h4>내용</h4>
-            <div className="detailContent">{detailData.content}</div>
+    return (
+      <>
+        <Header
+          text={new Date(detailData.date).toLocaleDateString()}
+          left={<Button text={"뒤로가기"} onClick={backPage} />}
+          right={<Button text={"수정하기"} onClick={editPage} />}
+        />
+
+        <div className="detailScore">
+          <h4> 점수 </h4>
+          <div
+            className={[`detailScoreImg imgScore${detailData.score}`].join(" ")}
+          >
+            <img src={findScoreData.score_img} />
+            <div>{findScoreData.score_descript}</div>
           </div>
-        </>
-      ) : null}
-    </>
-  );
+        </div>
+
+        <div className="detailContent">
+          <h4>내용</h4>
+          <textarea disabled>{detailData.content}</textarea>
+        </div>
+      </>
+    );
+  }
 }
 
 export default Detail;

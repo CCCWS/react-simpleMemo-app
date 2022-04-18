@@ -86,6 +86,9 @@ function App() {
 
   const [data, dispatch] = useReducer(reducer, dummy);
   const dataId = useRef(1);
+  //더미데이터를 사용한 상태에서 새로운 값을 추가할시
+  //id값으로 1번부터 주고있지만 이미 1~5번 id는 사용중이라 에러발생
+  //더미데이터를 사용하며 에러를 피하기 위해서는 id를 6부터 줘야됨
 
   //생성
   const onCreate = (date, content, score) => {

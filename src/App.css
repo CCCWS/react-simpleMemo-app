@@ -17,25 +17,39 @@ body {
 .App {
   /* font-family: "Dongle", sans-serif;
   font-family: "Hi Melody", cursive; */
-  height: 100vh;
+  min-height: 100vh;
   padding: 20px;
 }
 
 @media (min-width: 650px) {
   .App {
-    width: 630px;
+    width: 60vw;
+  }
+  .header_text {
+    font-size: 40px;
+  }
+  .Button {
+    font-size: 20px;
   }
 }
 
 @media (max-width: 650px) {
   .App {
-    width: 90vw;
+    width: 100vw;
+  }
+
+  .header_text {
+    font-size: 24px;
+  }
+
+  .Button {
+    font-size: 16px;
   }
 }
 
 #root {
-  background-color: rgb(255, 237, 204);
-  box-shadow: rgba(255, 237, 204, 0.3) 10px 10px 10px 3px;
+  background-color: rgb(248, 248, 248);
+  box-shadow: rgba(5, 5, 5, 0.2) 10px 10px 10px 3px;
 }
 
 /*  Button */
@@ -48,8 +62,6 @@ body {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 10px;
-
-  font-size: 20px;
 
   white-space: nowrap;
 
@@ -89,7 +101,6 @@ body {
 }
 
 .header_text {
-  font-size: 40px;
   width: 50%;
   justify-content: center;
 }
@@ -193,4 +204,42 @@ body {
 .BtnInput {
   display: flex;
   justify-content: space-between;
+}
+
+/* 상세페이지 */
+.detailScore {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  font-size: 24px;
+}
+
+.detailScore .detailScoreImg {
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.detailScore .detailScoreImg img {
+  width: 80%;
+}
+
+.detailContent h4 {
+  text-align: center;
+  font-size: 24px;
+}
+.detailContent textarea {
+  background-color: rgb(228, 228, 228);
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100%;
+  min-height: 300px;
+  padding: 10px;
+  font-size: 20px;
+  font-family: "Hi Melody", cursive;
+  line-height: 1.5;
+  resize: none;
 }

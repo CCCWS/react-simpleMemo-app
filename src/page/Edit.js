@@ -19,6 +19,7 @@ function Edit() {
       if (find) {
         setFindData(find);
       } else {
+        alert("없음");
         nav("/", { replace: true });
       }
     }

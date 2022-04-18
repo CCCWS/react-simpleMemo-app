@@ -11,8 +11,7 @@
   cursor: pointer;
   font-family: "Hi Melody", cursive;
   background-color: rgb(226, 226, 226);
-  font-size: 20px;
-  
+  font-size: 16px;
 }
 
 .menu Button {
@@ -32,7 +31,6 @@
   padding-bottom: 30px;
   height: 100px;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
-  
 }
 
 .dataList .imgScore {
@@ -54,9 +52,8 @@
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 20px;
-  
 }
 
 .content {
-  font-size: 25px;
+  font-size: 16px;
 }
