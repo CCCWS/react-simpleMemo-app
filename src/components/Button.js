@@ -22,3 +22,5 @@ function Button({ text, type, onClick }) {
 }
 
 export default Button;
+
+//버튼 컴포넌트

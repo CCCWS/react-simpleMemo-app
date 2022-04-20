@@ -44,8 +44,9 @@ const reducer = (state, action) => {
   return newState;
 };
 
-export const StateContext = React.createContext(); //
+export const StateContext = React.createContext();
 export const FunctionContext = React.createContext();
+//context 생성
 
 // const dummy = [
 //   {
@@ -116,7 +117,7 @@ function App() {
     });
     dataId.current += 1;
   };
-
+  
   //제거
   const onRemove = (id) => {
     //id를 전달

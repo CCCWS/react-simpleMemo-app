@@ -11,3 +11,5 @@ function Header({ text, left, right }) {
 }
 
 export default Header;
+
+//헤더 컴포넌트

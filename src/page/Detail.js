@@ -6,14 +6,17 @@ import { FunctionContext } from "../App";
 import Button from "../components/Button";
 import Header from "../components/Header";
 
-import { scoreList } from "../utils/score";
+import { scoreList } from "../utils/info";
 
 function Detail() {
   const nav = useNavigate();
-  const [detailData, setDetailData] = useState();
-  const data = useContext(StateContext);
-  const { onRemove } = useContext(FunctionContext);
+
   const { id } = useParams();
+
+  const { onRemove } = useContext(FunctionContext);
+  const data = useContext(StateContext);
+
+  const [detailData, setDetailData] = useState();
 
   useEffect(() => {
     if (detailData) {
@@ -24,10 +27,6 @@ function Detail() {
 
   const backPage = () => {
     nav(-1);
-  };
-
-  const editPage = () => {
-    nav(`/edit/${id}`);
   };
 
   useEffect(() => {
@@ -41,6 +40,7 @@ function Detail() {
       }
     }
   }, [data, id]);
+  //수정페이지와 동일하게 id값을 비교하여 일치하는 id를 가지는 데이터 하나만 가져옴
 
   const removeData = () => {
     if (window.confirm("삭제?")) {
@@ -48,6 +48,8 @@ function Detail() {
       nav("/", { replace: true });
     }
   };
+  //context로 가져온 onRemove함수에 state에 저장된 데이터의 id값을 보냄
+  //onRemove함수에서는 전달받은 id와 일치하는 데이터를 filter를 통해 제외시킴
 
   if (!detailData) {
     return <div>loading</div>;
@@ -55,6 +57,7 @@ function Detail() {
     const findScoreData = scoreList.find(
       (item) => parseInt(item.score_id) === parseInt(detailData.score)
     );
+    //utils의 score를 import해서 일치하는 id값의 데이터를 불러옴
 
     return (
       <>
@@ -84,3 +87,6 @@ function Detail() {
 }
 
 export default Detail;
+
+//상세페이지
+// 이미지에 대한 정보를 담고있는 score와 해당 id에 일치하는 정보를 가져옴
